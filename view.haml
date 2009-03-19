@@ -28,6 +28,9 @@
         .quote
           :margin 30px 0
           
+          p
+            :margin 15px 0
+          
           .body
             :font-size 140%
             :line-height 30px
@@ -49,7 +52,7 @@
     
     - for quote in quotes
       %div.quote
-        %p.body= quote
+        .body= quote
         %cite.author
           - if quote.source?
             %a.name{:href => quote.source}= quote.author

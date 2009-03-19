@@ -1,25 +1,26 @@
 require 'rubygems'
 require 'sinatra'
+require 'rdiscount'
 
 class Quote
   
   def self.all
     Dir[Sinatra::Application.root+'/quotes/*'].
     map do |path|
-      id, updated = File.basename(path), File.mtime(path)
+      id = File.basename(path)
       body, props = File.read(path).match(/(.+?)---\n(.+)/m).captures
-      new(id, body, updated, YAML.load(props))
+      new(id, body, YAML.load(props))
     end.
-    sort_by { |q| q.updated }.reverse
+    sort_by { |q| q.date }.reverse
   end
   
   def initialize(*args)
-    @id, @body, @updated, @props = args
+    @id, @body, @props = args
   end
   
   attr_reader :id, :updated
   
-  def to_s; @body end
+  def to_s; RDiscount.new(@body).to_html end
   
   def method_missing(*args)
     return super unless args.size == 1
@@ -38,6 +39,5 @@ end
 set :views, Sinatra::Application.root
 
 get '/' do
-  # haml "#{options.root}/view.haml".to_sym
   haml :view
 end
