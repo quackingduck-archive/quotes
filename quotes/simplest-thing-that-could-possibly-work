@@ -1,0 +1,8 @@
+So when I asked, "What's the simplest thing that could possibly work," I wasn't even sure. I wasn't asking, "What do you know would work?" I was asking, "What's possible? What is the simplest thing we could say in code, so that we'll be talking about something that's on the screen, instead of something that's ill-formed in our mind." I was saying, "Once we get something on the screen, we can look at it. If it needs to be more we can make it more. Our problem is we've got nothing."
+
+I think that that's a breakthrough, because you are always taught to do as much as you can. Always put checks in. Always look for exceptions. Always handle the most general case. Always give the user the best advice. Always print a meaningful error message. Always this. Always that. You have so many things in the background that you're supposed to do, there's no room left to think. I say, forget all that and ask yourself, "What's the simplest thing that could possibly work?"
+
+---
+author: Ward Cunningham
+date: 2009-05-30
+source: http://www.artima.com/intv/simplest3.html
