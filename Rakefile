@@ -1,6 +1,7 @@
+task :default => :run
 
 task :run do
-  sh 'ruby app.rb'
+  sh 'ruby app.rb & open http://localhost:4567'
 end
 
 task :deploy do
