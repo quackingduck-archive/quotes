@@ -1,7 +1,9 @@
 task :default => :run
 
+port = 5143 
+
 task :run do
-  sh 'ruby app.rb & open http://localhost:4567'
+  sh "ruby app.rb -p #{port} & open http://localhost:#{port}"
 end
 
 task :deploy do
