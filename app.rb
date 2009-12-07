@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'rdiscount'
+require 'haml'
 
 class Quote
   
