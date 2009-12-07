@@ -9,10 +9,23 @@ class Quote
     Dir[Sinatra::Application.root+'/quotes/*'].
     map do |path|
       id = File.basename(path)
-      body, props = File.read(path).match(/(.+?)---\n(.+)/m).captures
-      new(id, body, YAML.load(props))
+      begin
+        body, props = self.parse(File.read(path))
+        new(id, body, YAML.load(props))
+      rescue ParseError
+        $stderr.puts "can't parse quote at: #{path}"
+      end
     end.
+    compact.
     sort_by { |q| q.date }.reverse
+  end
+  
+  class ParseError < StandardError ; end
+  
+  def self.parse(str)
+    match = str.match(/(.+?)---\n(.+)/m)
+    raise ParseError unless match
+    match.captures
   end
   
   def initialize(*args)
