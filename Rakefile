@@ -1,9 +1,9 @@
 task :default => :run
 
-port = 5143 
+port = 4567 
 
-task :run do
-  sh "ruby app.rb -p #{port} & open http://localhost:#{port}"
+task :dev do
+  sh "shotgun -p #{port} -O"
 end
 
 task :deploy do
