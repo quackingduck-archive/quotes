@@ -4,6 +4,7 @@ require 'rdiscount'
 require 'haml'
 
 set :views, Sinatra::Application.root
+set :haml, :format => :html5
 
 get '/' do
   haml :view
