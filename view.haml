@@ -8,28 +8,28 @@
       *
         :margin 0
         :padding 0
-        
+
       body
         :font-size 76%
         :line-height 20px
         :font-family Georgia, serif
         :width 500px
         :margin 20px auto
-      
+
       a
         :color black
-      
+
       .title
         :font-size 200%
         :font-weight bold
         :margin-bottom 40px
-      
+
       .quote
         :margin 30px 0
-        
+
         p
           :margin 15px 0
-        
+
         .body
           :font-size 140%
           :line-height 30px
@@ -44,35 +44,35 @@
             :margin-top -15px
             :background white
             :padding-left 1em
-    
-  
+
+
 %body
   %h1.title= title
-  
+
   - for quote in quotes
-    %div.quote
+    %div.quote{:id => quote.id}
       .body= quote
       %cite.author
         - if quote.source?
           %a.name{:href => quote.source}= quote.author
         - else
           %span.name= quote.author
-    
+
   .footer
     :markdown
       Quotes collected by [Myles Byrne](http://myles.id.au)
-      
+
       <br>
-      
+
       *cf.* [Pictures I Like For A Variety Of Reasons][pics] (not by me)
-      
+
       Other good quote collections: [Jason Fried's Favourite Quotes][jfried], [Steve Dekorte's quote page][sdekorte]
-      
+
       [pics]: http://fantasygoat.livejournal.com/
       [jfried]: http://jf.backpackit.com/pub/29-favorite-quotes
       [sdekorte]: http://dekorte.com/about/quotes/
-      
-  
+
+
   -# google tracker junk
   :plain
     <script type="text/javascript">
