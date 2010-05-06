@@ -1,6 +1,6 @@
-task :default => :run
+task :default => :dev
 
-port = 4567 
+port = 4567
 
 task :dev do
   sh "shotgun -p #{port} -s thin -O"
