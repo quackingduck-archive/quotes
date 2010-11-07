@@ -5,6 +5,8 @@ require 'haml'
 
 set :views, Sinatra::Application.root
 set :haml, :format => :html5
+# the server handles logging
+disable :logging
 
 get '/' do
   haml :view
