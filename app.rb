@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'rdiscount'
 require 'haml'
+require 'yaml'
 
 set :views, Sinatra::Application.root
 set :haml, :format => :html5
