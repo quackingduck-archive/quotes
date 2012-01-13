@@ -49,7 +49,7 @@
 %body
   %h1.title= title
 
-  - for quote in quotes
+  - for quote in Quote.all
     %div.quote{:id => quote.id}
       .body= quote
       %cite.author
