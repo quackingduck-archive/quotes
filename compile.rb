@@ -18,7 +18,10 @@ class Quote
     Dir[root+'/quotes/*'].
     collect { |path| load(path) }.
     compact. # ignore the ones that fail to load
-    sort_by { |q| q.date }.reverse
+    group_by { |q| q.date }.
+    sort_by { |date, g| date }.reverse.
+    map { |date, group| group.sort_by(&:author) }.
+    flatten
   end
 
   class ParseError < StandardError ; end
