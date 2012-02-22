@@ -6,5 +6,9 @@ require 'compile'
 disable :logging
 
 get '/' do
-  Compile()
+  if settings.production?
+    File.read settings.root + '/build/index.html'
+  else
+    Compile()
+  end
 end
